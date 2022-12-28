@@ -1,0 +1,17 @@
+server:
+  port: 0
+spring:
+  application:
+    name: spring-boot-amq-consumer-test
+  main:
+    banner-mode: 'off'
+    lazy-initialization: false
+  activemq:
+    pool:
+      enabled: true
+  jms:
+    pub-sub-domain: false
+  sleuth:
+    messaging:
+      jms:
+        enabled: false

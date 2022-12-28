@@ -1,0 +1,9 @@
+docker run --name='activemq' -d \
+-e 'ACTIVEMQ_CONFIG_NAME=amqp-srv1' \
+-e 'ACTIVEMQ_CONFIG_DEFAULTACCOUNT=false' \
+-e 'ACTIVEMQ_ADMIN_LOGIN=admin' -e 'ACTIVEMQ_ADMIN_PASSWORD=admin' \
+-e 'ACTIVEMQ_CONFIG_MINMEMORY=1024' -e  'ACTIVEMQ_CONFIG_MAXMEMORY=4096' \
+-p 8161:8161 \
+-p 61616:61616 \
+-p 61613:61613 \
+webcenter/activemq:5.14.3

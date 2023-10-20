@@ -1,12 +1,11 @@
-server:
-  port: 0
 spring:
   application:
-    name: spring-boot-amq-consumer-test
+    name: spring-boot-amq-producer-test
   main:
     banner-mode: 'off'
-    lazy-initialization: false
+    lazy-initialization: true
   activemq:
+    broker-url: failover:(tcp://localhost:61616)?initialReconnectDelay=100
     pool:
       enabled: true
   jms:

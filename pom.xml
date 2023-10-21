@@ -17,7 +17,7 @@
     </properties>
 
     <modules>
-        <module>spring-boot-amq-test</module>
+        <module>spring-boot-amq-order-test</module>
         <module>spring-boot-amq-consumer-test</module>
     </modules>
 

@@ -6,6 +6,28 @@ spring:
   main:
     banner-mode: 'off'
     lazy-initialization: false
+  datasource:
+    hikari:
+      connectionTimeout: ${HIKARI_MAXIMUM_CON_TIMEOUT:30000}
+      maximumPoolSize: ${HIKARI_MAXIMUM_POOL_SIZE:20}
+    driver-class-name: org.postgresql.Driver
+    testWhileIdle: 'true'
+    password: ${DATASOURCE_PASSWORD:appusr}
+    username: ${DATASOURCE_USERNAME:appusr}
+    #url: ${DATASOURCE_URL:jdbc:postgresql://localhost:5432/product?useSSL=false&createDatabaseIfNotExist=true}
+    url: ${DATASOURCE_URL:jdbc:postgresql://localhost:5432/product}
+    validationQuery: SELECT 1
+  jpa:
+    hibernate:
+      ddl-auto: none
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    properties:
+      hibernate:
+        format_sql: 'true'
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        use: 'true'
+        show_sql: 'false'
+    show-sql: 'false'
   activemq:
     pool:
       enabled: true

@@ -14,6 +14,7 @@ public class ProductService {
     private final JmsTemplate jmsTemplate;
     private final Gson gson;
 
+
     public ProductService(JmsTemplate jmsTemplate, Gson gson) {
         this.jmsTemplate = jmsTemplate;
         this.gson = gson;

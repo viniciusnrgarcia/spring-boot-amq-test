@@ -1,8 +1,6 @@
-server:
-  port: ${SERVER_PORT:8081}
 spring:
   application:
-    name: spring-boot-amq-producer-test
+    name: spring-boot-amq-test
   main:
     banner-mode: 'off'
     lazy-initialization: true
@@ -16,6 +14,3 @@ spring:
     messaging:
       jms:
         enabled: false
-springdoc:
-  swagger-ui:
-    operationsSorter=method:

@@ -3,10 +3,7 @@ package br.com.vnrg.springbootamqtest.controller;
 import br.com.vnrg.springbootamqtest.service.ProductService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
 
@@ -22,10 +19,19 @@ public class ProductController {
     }
 
     @PostMapping
-    public ResponseEntity<String> create(@RequestParam Integer total) {
-        log.info("Creating products {} ", total);
+    public ResponseEntity<String> create(@RequestBody Product p) {
+        // for (int i = 0; i < total; i++) {
+        // p.setId(UUID.randomUUID().toString());
+        this.service.send(p);
+        // }
+        return ResponseEntity.ok().build();
+    }
+
+    @PostMapping(path = "/perf")
+    public ResponseEntity<String> create(@RequestBody Product p, @RequestParam Integer total) {
         for (int i = 0; i < total; i++) {
-            this.service.send(new Product(UUID.randomUUID().toString(), "Product name " + i, "Product description " + i, i));
+            p.setId(UUID.randomUUID().toString());
+            this.service.send(p);
         }
         return ResponseEntity.ok().build();
     }
